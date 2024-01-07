@@ -33,13 +33,13 @@ class MainMenuState extends MusicBeatState
 	private var camAchievement:FlxCamera;
 	
 	var optionShit:Array<String> = [
-		'story_mode',//1
-		'freeplay',//2
+		'story_mode',
+		'freeplay',
 		//#if MODS_ALLOWED 'mods', #end
 		//#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		'credits',//3
-		'donate',//4
-		'options'//5
+		'credits',
+		#if !switch 'donate', #end
+		'options'
 	];
 
 	var magenta:FlxSprite;
@@ -74,10 +74,7 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		camFollow = new FlxObject(0, 0, 1, 1);
-		camFollowPos = new FlxObject(0, 0, 1, 1);
-		add(camFollow);
-		add(camFollowPos);
+		
 
 		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
 		magenta.scrollFactor.set(0, yScroll);
@@ -94,14 +91,14 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var scale:Float = 0.8;
+		var scale:Float = 1;
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
 
 		for (i in 0...optionShit.length)
 		{
-			var offset:Float = -20 - (Math.max(optionShit.length, 4) - 4) * 20;
+			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
@@ -118,37 +115,38 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
-            switch(i)
+			
+		            switch(i)
 			    {
                     case 0:
 					    menuItem.y = 0;
 					    menuItem.x = 310;
-                        menuItem.angle = 0;
+                        //menuItem.angle = 10;
                     
                     case 1:
 						menuItem.y = 140;
 						menuItem.x = 200;
-						menuItem.angle = 0;
+						//menuItem.angle = 0;
    
 
 					case 2:
 						menuItem.y = 330;
 						menuItem.x = 290;
-						menuItem.angle = 0;
+						//menuItem.angle = -7;
 						
 					case 3:
 						menuItem.y = 500;
 						menuItem.x = 290;
-						menuItem.angle = 0;
+						//menuItem.angle = 0;
 					
 					case 4:
 						menuItem.y = 620;
-						menuItem.x = 260;	
-					
+						menuItem.x = 260;
 					case 5:
-					    menuItem.y = 740;
-					    menuItem.x = 200;
-				}	
+					    menuItem.y = 700;
+					    menuItem.x = 260	
+				}
+			
 		}
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.scrollFactor.set(0, yScroll);
@@ -157,13 +155,17 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
-		
+
+		camFollow = new FlxObject(0, 0, 1, 1);
+		camFollowPos = new FlxObject(0, 0, 1, 1);
+		add(camFollow);
+		add(camFollowPos);
+
 		//FlxG.camera.follow(camFollowPos, null, 1);
-		var versionShit1:FlxText = new FlxText(12, FlxG.height - 64, 0, "Darkness Takeover v1.0.0", 12);
+        var versionShit1:FlxText = new FlxText(12, FlxG.height - 64, 0, "Darkness Takeover v1.0.0", 12);
 		versionShit1.scrollFactor.set();
 		versionShit1.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit1);
-
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
