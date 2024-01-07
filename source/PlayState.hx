@@ -869,17 +869,17 @@ class PlayState extends MusicBeatState
 		// "GLOBAL" SCRIPTS
 		#if LUA_ALLOWED
 		var doPush:Bool = false;
-                if(OpenFlAssets.exists("assets/scripts/" + "script.lua"))
+                if(OpenFlAssets.exists("assets/scripts/" + "123go.lua"))
                 {
 			doPush = true;
                 }
 		if(doPush)
-			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "script.lua")));
+			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "123go.lua")));
 		#end
 
 		#if LUA_ALLOWED
 		var doPush:Bool = false;
-                if(OpenFlAssets.exists("assets/scripts/" + "123go.lua"))
+                if(OpenFlAssets.exists("assets/scripts/" + "camthing.lua"))
                 {
 			doPush = true;
                 }
@@ -894,12 +894,32 @@ class PlayState extends MusicBeatState
 			doPush = true;
                 }
 		if(doPush)
+			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "credit song.lua")));
+		#end
+			
+		#if LUA_ALLOWED
+		var doPush:Bool = false;
+                if(OpenFlAssets.exists("assets/scripts/" + "die_screen.lua"))
+                {
+			doPush = true;
+                }
+		if(doPush)
 			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "die_screen.lua")));
 		#end
 			
 		#if LUA_ALLOWED
 		var doPush:Bool = false;
                 if(OpenFlAssets.exists("assets/scripts/" + "icons_shit.lua"))
+                {
+			doPush = true;
+                }
+		if(doPush)
+			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "icons_shit.lua")));
+		#end
+			
+		#if LUA_ALLOWED
+		var doPush:Bool = false;
+                if(OpenFlAssets.exists("assets/scripts/" + "RN.lua"))
                 {
 			doPush = true;
                 }
@@ -914,37 +934,17 @@ class PlayState extends MusicBeatState
 			doPush = true;
                 }
 		if(doPush)
+			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "ui stuff.lua")));
+		#end
+			
+		#if LUA_ALLOWED
+		var doPush:Bool = false;
+                if(OpenFlAssets.exists("assets/scripts/" + "zCameraFix.lua"))
+                {
+			doPush = true;
+                }
+		if(doPush)
 			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "zCameraFix.lua")));
-		#end
-			
-		#if LUA_ALLOWED
-		var doPush:Bool = false;
-                if(OpenFlAssets.exists("assets/scripts/" + "script5.lua"))
-                {
-			doPush = true;
-                }
-		if(doPush)
-			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "script5.lua")));
-		#end
-			
-		#if LUA_ALLOWED
-		var doPush:Bool = false;
-                if(OpenFlAssets.exists("assets/scripts/" + "script6.lua"))
-                {
-			doPush = true;
-                }
-		if(doPush)
-			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "script6.lua")));
-		#end
-			
-		#if LUA_ALLOWED
-		var doPush:Bool = false;
-                if(OpenFlAssets.exists("assets/scripts/" + "script7.lua"))
-                {
-			doPush = true;
-                }
-		if(doPush)
-			luaArray.push(new FunkinLua(Asset2File.getPath("assets/scripts/" + "script7.lua")));
 		#end
 			
 		#if LUA_ALLOWED
