@@ -91,15 +91,15 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var scale:Float = 1;
+		var scale:Float = 0.8;
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
 
 		for (i in 0...optionShit.length)
 		{
-			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
-			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
+			var offset:Float = -20 - (Math.max(optionShit.length, 4) - 4) * 80;
+			var menuItem:FlxSprite = new FlxSprite(-40, (i * 140)  + offset);
 			menuItem.scale.x = scale;
 			menuItem.scale.y = scale;
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_' + optionShit[i]);
@@ -120,31 +120,31 @@ class MainMenuState extends MusicBeatState
 			    {
                     case 0:
 					    menuItem.y = 0;
-					    menuItem.x = 100;
+					    menuItem.x = -40;
                         //menuItem.angle = 10;
                     
                     case 1:
 						menuItem.y = 140;
-						menuItem.x = 100;
+						menuItem.x = -40;
 						//menuItem.angle = 0;
    
 
 					case 2:
 						menuItem.y = 330;
-						menuItem.x = 100;
+						menuItem.x = -40;
 						//menuItem.angle = -7;
 						
 					case 3:
 						menuItem.y = 500;
-						menuItem.x = 100;
+						menuItem.x = -40;
 						//menuItem.angle = 0;
 					
 					case 4:
 						menuItem.y = 620;
-						menuItem.x = 100;
+						menuItem.x = -40;
 					case 5:
 					    menuItem.y = 700;
-					    menuItem.x = 100	
+					    menuItem.x = -40;
 				}
 			
 		}
